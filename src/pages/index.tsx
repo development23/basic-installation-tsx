@@ -1,12 +1,20 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import dbConnect from '../middleware/database'
+
+export async function getServerSideProps(){
+  console.log(await dbConnect())
+  return {
+    props:{}
+  }
+}
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex min-h-screen flex-col items-center justify-center py-2b">
       <Head>
-        <title>Create Next App</title>
+        <title>Poddar Health Lab Test</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -14,18 +22,18 @@ const Home: NextPage = () => {
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
           <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
+            Poddar LabTest
           </a>
         </h1>
 
-        <p className="mt-3 text-2xl">
+        {/* <p className="mt-3 text-2xl">
           Get started by editing{' '}
           <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
             pages/index.tsx
           </code>
-        </p>
+        </p> */}
 
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
+        {/* <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           <a
             href="https://nextjs.org/docs"
             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
@@ -65,7 +73,7 @@ const Home: NextPage = () => {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
-        </div>
+        </div> */}
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
@@ -75,8 +83,8 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+          Powered by <span className='font-bold'> ALDS </span>
+          {/* <Image src="/vercel.svg" alt="ALDS" width={72} height={16} /> */}
         </a>
       </footer>
     </div>
